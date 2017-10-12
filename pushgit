@@ -1,0 +1,8 @@
+if [[ $(git crypt status|grep WARNING) ]]; then
+  git crypt status|grep WARNING 
+  echo
+  echo "They are unencryted sensitive data files in this repo..."
+else
+  read -p "Press [Enter] key to push to ($1)"
+  git push origin $1 
+fi
